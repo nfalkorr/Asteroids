@@ -22,7 +22,7 @@ def main():
 			if event.type == pygame.QUIT:
 				return
 
-		screen.fill("black",rect=None,special_flags=0) #initializes screen
+		screen.fill("black",rect=None,special_flags=0) #initializes screen. technically i could just pass in color
 		player.draw(screen) #make sure to draw player before display.flip() updates the screen
 		pygame.display.flip() # displays screen
 		

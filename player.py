@@ -12,8 +12,8 @@ class Player(CircleShape):
 	    forward = pygame.Vector2(0, 1).rotate(self.rotation) # calculating highest/forwardmost point of triangle
 	    right = pygame.Vector2(0, 1).rotate(self.rotation + 90) * self.radius / 1.5 #calculate rightmost side of triangle
 	    a = self.position + forward * self.radius # point a is the center of the triangle (self.position) + the forwardmost point * the defined radius of the player passed in from CircleShape
-	    b = self.position - forward * self.radius - right #leftmost position after movement
-	    c = self.position - forward * self.radius + right #rightmost position after movement
+	    b = self.position - forward * self.radius - right #leftmost point calculation
+	    c = self.position - forward * self.radius + right #rightmost point calculation
 	    return [a, b, c] #return updated position
 
 	def draw(self,screen):
