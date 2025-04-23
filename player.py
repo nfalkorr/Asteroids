@@ -5,7 +5,7 @@ import pygame
 class Player(CircleShape):
 	def __init__(self,x,y):
 		super().__init__(x,y,PLAYER_RADIUS) #pass in from CircleShape
-	
+			
 		self.rotation = 0 # initialize player stationary
 
 	def triangle(self): #points relative to each other, draw in next method
