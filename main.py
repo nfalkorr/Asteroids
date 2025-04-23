@@ -19,9 +19,7 @@ def main():
 
 		screen.fill("black",rect=None,special_flags=0) #initializes screen
 		pygame.display.flip() # displays screen
-		clock.tick(60) # pauses game loop until 1/60th of a second has passed to save resources
-		# print(f"Tick is {clock.tick(60)}") #debug for performance
-		dt = clock.tick(60)/1000 # delta time since last time tick was called
+		dt = clock.tick(60)/1000 # delta time since last time tick was called, sets to 60fps
 		print(f"dt is {dt}") #debug for performance
 if __name__ == "__main__": # run main
 	main()
