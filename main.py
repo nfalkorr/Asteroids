@@ -1,4 +1,5 @@
 from constants import *
+from player import Player
 import pygame
 pygame.init
 
@@ -11,6 +12,10 @@ def main():
 
 	clock = pygame.time.Clock() #defining object Clock to initialize updates
 	dt = 0
+	x = SCREEN_WIDTH/2
+	y = SCREEN_HEIGHT/2	
+	player = Player(x,y)
+
 
 	while(True): #game logic loop, updates infinitely until game is closed out by user
 		for event in pygame.event.get():
@@ -18,8 +23,13 @@ def main():
 				return
 
 		screen.fill("black",rect=None,special_flags=0) #initializes screen
+		player.draw(screen) #make sure to draw player before display.flip() updates the screen
 		pygame.display.flip() # displays screen
+		
+		
 		dt = clock.tick(60)/1000 # delta time since last time tick was called, sets to 60fps
-		print(f"dt is {dt}") #debug for performance
+		#print(f"dt is {dt}") #debug for performance
+		
+	
 if __name__ == "__main__": # run main
 	main()
