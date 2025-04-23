@@ -1,7 +1,9 @@
 from constants import *
 from player import Player
 import pygame
-pygame.init
+from asteroidfield import *
+import asteroid
+pygame.init()
 
 def main():
 
@@ -17,9 +19,16 @@ def main():
 	group_updatable = pygame.sprite.Group()
 	group_drawable = pygame.sprite.Group()	
 	Player.containers = (group_updatable, group_drawable)
-	
-	#create other starting modifications here
 
+
+	AsteroidField.containers = (group_updatable)
+	asteroid_field = AsteroidField()
+	
+	#asteroids
+	group_asteroids = pygame.sprite.Group()
+	Asteroid.containers = (group_asteroids,group_updatable,group_drawable)
+	#create other starting modifications here
+	
 	#define player starting position
 	x = SCREEN_WIDTH/2
 	y = SCREEN_HEIGHT/2	
@@ -32,10 +41,10 @@ def main():
 				return
 
 		screen.fill("black",rect=None,special_flags=0) #initializes screen. technically i could just pass in color			
-		
+		group_updatable.update(dt)
 		for object in group_drawable:
 			object.draw(screen) #make sure to draw player before display.flip() updates the screen
-		group_updatable.update(dt)
+		
 		pygame.display.flip() # displays screen
 		
 		
