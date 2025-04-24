@@ -1,3 +1,4 @@
+import sys
 from constants import *
 from player import Player
 import pygame
@@ -42,6 +43,10 @@ def main():
 
 		screen.fill("black",rect=None,special_flags=0) #initializes screen. technically i could just pass in color			
 		group_updatable.update(dt)
+		for asteroid in group_asteroids:
+			if asteroid.collision(player):
+				print("Game Over!")
+				sys.exit("You Lost")
 		for object in group_drawable:
 			object.draw(screen) #make sure to draw player before display.flip() updates the screen
 		
